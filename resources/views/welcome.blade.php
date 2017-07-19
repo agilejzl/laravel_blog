@@ -5,10 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel Blog</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="/css/app.css">
+        <script src="/js/app.js"></script>
 
         <!-- Styles -->
         <style>
@@ -65,6 +68,8 @@
         </style>
     </head>
     <body>
+        @include('shared._header')
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,9 +84,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Hello world!
+                    Hello, <a href="/posts">Posts</a>
                 </div>
             </div>
         </div>
+
+        @include('shared._footer')
     </body>
 </html>

@@ -1,5 +1,6 @@
-<html>
-    <body>
-        <h1>Hello, {{ $posts }}</h1>
-    </body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+  <p>Hello, {{ $posts }}</p>
+@endsection
+
