@@ -3,9 +3,9 @@
   <head>
     <title>Laravel Blog - @yield('title')</title>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/app.js"></script>
   </head>
 
   <body>
@@ -16,5 +16,7 @@
     </div>
 
     @include('shared._footer')
+
+    <script type="text/javascript" src="/js/app.js"></script>
   </body>
 </html>

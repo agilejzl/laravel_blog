@@ -18,6 +18,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+      @if (empty(session('user')))
         <li>
           <a type="button" class="btn" data-toggle="modal" data-target="#registerModal">
             Register
@@ -29,6 +30,16 @@
             Login
           </a>
         </li>
+      @else
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+          {{session('user')['name']}}
+           <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/user/logout">Logout</a></li>
+          </ul>
+        </li>
+       @endif
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -43,7 +54,7 @@
         <h4 class="modal-title" id="registerModalLabel">Register Modal</h4>
       </div>
 
-      <form id="registerForm" action="/register" method="post">
+      <form id="registerForm" action="/user/register" method="post">
       <div class="modal-body">
         <div class="form-group">
           <label for="user_name">Name</label>
@@ -81,7 +92,7 @@
         <h4 class="modal-title" id="loginModalLabel">Login Modal</h4>
       </div>
 
-      <form id="loginForm" action="/login" method="post">
+      <form id="loginForm" action="/user/login" method="post">
       <div class="modal-body">
         <div class="form-group">
           <label for="user_email">Email</label>

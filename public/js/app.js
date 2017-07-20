@@ -773,7 +773,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(9);
-module.exports = __webpack_require__(40);
+module.exports = __webpack_require__(41);
 
 
 /***/ }),
@@ -788,8 +788,9 @@ module.exports = __webpack_require__(40);
  */
 
 __webpack_require__(10);
+__webpack_require__(35);
 
-window.Vue = __webpack_require__(35);
+window.Vue = __webpack_require__(36);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -797,10 +798,10 @@ window.Vue = __webpack_require__(35);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(36));
+Vue.component('example', __webpack_require__(37));
 
 var app = new Vue({
-  el: '#app'
+  el: '.body-container'
 });
 
 /***/ }),
@@ -31690,6 +31691,62 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 35 */
+/***/ (function(module, exports) {
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+$('#registerForm').on('submit', function (e) {
+  $form = $(e.target);
+  url = $form.attr('action') + '?' + $form.serialize();
+
+  $.ajax({
+    method: 'post',
+    url: url,
+    success: function success(res, status, xhr) {
+      data = JSON.parse(res);
+      if (data.error_code > 0) {
+        alert(data.msg);
+      } else {
+        location.reload();
+      }
+    },
+    error: function error(res, status, xhr) {
+      console.error('API error');
+    }
+  });
+
+  return false;
+});
+
+$('#loginForm').on('submit', function (e) {
+  $form = $(e.target);
+  url = $form.attr('action') + '?' + $form.serialize();
+
+  $.ajax({
+    method: 'post',
+    url: url,
+    success: function success(res, status, xhr) {
+      data = JSON.parse(res);
+      if (data.error_code > 0) {
+        alert(data.msg);
+      } else {
+        location.reload();
+      }
+    },
+    error: function error(res, status, xhr) {
+      console.error('API error');
+    }
+  });
+
+  return false;
+});
+
+/***/ }),
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41763,15 +41820,15 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var Component = __webpack_require__(37)(
+var Component = __webpack_require__(38)(
   /* script */
-  __webpack_require__(38),
-  /* template */
   __webpack_require__(39),
+  /* template */
+  __webpack_require__(40),
   /* styles */
   null,
   /* scopeId */
@@ -41803,7 +41860,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -41900,7 +41957,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41929,7 +41986,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -41958,7 +42015,7 @@ if (false) {
 }
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
