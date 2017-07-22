@@ -1,7 +1,7 @@
 
 <html>
   <head>
-    <title>Laravel Blog - @yield('title')</title>
+    <title>Admin Blog - @yield('title')</title>
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

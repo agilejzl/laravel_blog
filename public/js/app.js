@@ -801,7 +801,15 @@ window.Vue = __webpack_require__(36);
 Vue.component('example', __webpack_require__(37));
 
 var app = new Vue({
-  el: '.body-container'
+  el: '.main-container'
+});
+
+_.map($('.hero-nav>li'), function (item) {
+  var action = document.location.pathname;
+  if (action.startsWith($(item).find('a').attr('href'))) {
+    $(item).addClass('active');
+    return;
+  }
 });
 
 /***/ }),

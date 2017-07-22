@@ -82,7 +82,7 @@
                 </div>
             @endif
 
-            <div class="body-container">
+            <div class="main-container">
                 <div class="title m-b-md">
                     Hello, <a href="/posts">Posts</a>
                 </div>

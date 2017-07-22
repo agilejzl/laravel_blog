@@ -22,3 +22,7 @@ Route::get('/user/logout', 'UserController@logout');
 Route::resource('posts', 'PostController', ['only' => [
     'index', 'show'
 ]]);
+
+Route::resource('admin/posts', 'Admin\PostController', ['only' => [
+    'index', 'show'
+]]);

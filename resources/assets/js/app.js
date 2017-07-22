@@ -19,6 +19,14 @@ window.Vue = require('vue');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '.body-container'
+    el: '.main-container'
+});
+
+_.map($('.hero-nav>li'), function(item){
+  var action = document.location.pathname;
+  if (action.startsWith($(item).find('a').attr('href'))) {
+    $(item).addClass('active');
+    return;
+  }
 });
 

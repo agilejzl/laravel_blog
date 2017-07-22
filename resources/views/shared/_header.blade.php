@@ -11,10 +11,11 @@
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="if((strpos($request->pathinfo(), 'posts') !== false))active/if">
-          <a href="/posts">Posts</a>
+      <ul class="nav navbar-nav hero-nav">
+        <li>
+          <a href="/posts">Recents</a>
         </li>
+        <li><a href="/admin/posts">My Posts</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
