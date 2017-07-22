@@ -12,6 +12,8 @@
     @include('shared._header')
 
     <div class="container body-container">
+      @include('shared._flash')
+
       @yield('content')
     </div>
 

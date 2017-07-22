@@ -9,7 +9,8 @@ use App\User;
 class UserController extends Controller{
     public function logout(Request $request){
         $request->session()->forget('user');
-        return redirect('/');
+        $request->session()->flash('notice', 'Logout succeed!');
+        return redirect('/posts');
     }
 
     public function signin(Request $request){
@@ -23,6 +24,7 @@ class UserController extends Controller{
             print json_encode(['error_code'=>404, 'msg'=>'Wrong account!']);
         } else {
             session(['user' => $user]);
+            $request->session()->flash('notice', 'Login succeed!');
             print json_encode(['user'=>$user]);
         }
     }
@@ -35,6 +37,7 @@ class UserController extends Controller{
             $hash_user = array_merge($request->get('user'), ['password' => password_hash($password, PASSWORD_DEFAULT)]);
             $user = User::create($hash_user);
             session(['user' => $user]);
+            $request->session()->flash('notice', 'Register succeed!');
             print json_encode(['user'=>$user]);
         } else {
             print json_encode(['error_code'=>400, 'msg'=>'Email has been taken!']);
