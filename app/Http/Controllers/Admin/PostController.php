@@ -28,6 +28,12 @@ class PostController extends Controller
     return view('admin.posts.create');
   }
 
+  public function destroy($id){
+    $post = Post::findOrFail($id);
+    Post::destroy($post->id);
+    return redirect('/admin/posts');
+  }
+
   public function store(Request $request){
     $user = session('user');
     $category_name = $request->get('category_name');
@@ -43,6 +49,6 @@ class PostController extends Controller
       'category_id' => $category->id]
     );
     $post = Post::create($hash_post);
-    return view('admin.posts.show', ['post' => $post]);
+    return redirect('/admin/posts/'.$post->id);
   }
 }

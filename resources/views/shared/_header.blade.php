@@ -15,7 +15,9 @@
         <li>
           <a href="/posts">Recents</a>
         </li>
+        @unless (empty(session('user')))
         <li><a href="/admin/posts">My Posts</a></li>
+        @endunless
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
