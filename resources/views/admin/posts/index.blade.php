@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="btn-group pull-right" role="group">
-    <a href="/admin/posts/create" type="button" class="btn btn-default">New Post</a>
+  <div class="row">
+    <div class="pull-right">
+      <a href="/admin/posts/create" type="button" class="btn btn-default">New Post</a>
+    </div>
   </div>
 
   <div class="newer_content">
