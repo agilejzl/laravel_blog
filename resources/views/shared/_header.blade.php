@@ -39,6 +39,7 @@
           {{session('user')['name']}}
            <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="/user/{{session('user')['name']}}">Profile</a></li>
             <li><a href="/user/logout">Logout</a></li>
           </ul>
         </li>

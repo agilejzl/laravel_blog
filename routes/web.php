@@ -15,9 +15,11 @@ Route::get('/', function() {
     return view('welcome');
 });
 
-Route::post('/user/register', 'UserController@store');
-Route::post('/user/login', 'UserController@signin');
-Route::get('/user/logout', 'UserController@logout');
+Route::post('user/register', 'UserController@store');
+Route::post('user/login', 'UserController@login');
+Route::get('user/logout', 'UserController@logout');
+Route::get('user/{name}', 'UserController@show');
+Route::put('user/{id}', 'UserController@update');
 
 Route::resource('posts', 'PostController', ['only' => [
     'index', 'show'
